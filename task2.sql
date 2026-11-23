@@ -1,3 +1,5 @@
+DML
+
 1. Insert 5 records into DEPT table.
 CODE
 INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (10, 'ACCOUNTING', 'NEW YORK');
