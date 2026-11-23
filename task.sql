@@ -1,0 +1,116 @@
+1. Create a table EMP with the following structure: 
+Name Data Type 
+EMPNO NUMBER(6) 
+ENAME VARCHAR2(20)  
+JOB VARCHAR2(10)  
+MGRID NUMBER(6) 
+DEPTNO NUMBER(6) 
+SAL NUMBER(7,2)
+
+
+code 
+CREATE TABLE EMP ( 
+EMPNO INT PRIMARY KEY, -- NUMBER(6) → INT 
+ENAME VARCHAR(20), -- VARCHAR2(20) → VARCHAR(20) 
+JOB VARCHAR(10), -- VARCHAR2(10) → VARCHAR(10) 
+MGRID INT, -- NUMBER(6) → INT 
+DEPTNO INT, -- NUMBER(3) → INT 
+SAL DECIMAL(7,2) -- NUMBER(7,2) → DECIMAL(7,2) 
+);
+
+
+2. Add a column commission to the emp table. Commission should be numeric  
+with null values allowed.
+
+code
+ALTER TABLE EMP 
+ADD COMMISSION DECIMAL(7,2) NULL;
+
+
+3. Alter the job field of EMP table by modifying its size. 
+
+code
+ALTER TABLE EMP 
+ALTER COLUMN JOB VARCHAR(15);
+
+4. Create a table DEPT with the following structure:  
+Name DataType  
+DEPTNO NUMBER(3)  
+DNAME VARCHAR2(10 
+LOC VARCHAR2(10)  
+DEPTNO as the primary key
+
+code
+CREATE TABLE DEPT ( 
+ DEPTNO INT PRIMARY KEY, 
+ DNAME VARCHAR(10), 
+ LOC VARCHAR(10) 
+);
+
+5. Add constraints to the EMP table with empno as the primary key and deptno as the foreign  
+key referencing the DEPT table
+
+
+code
+ALTER TABLE EMP 
+ADD CONSTRAINT CK_EMPNO CHECK (EMPNO > 100);
+
+
+
+ALTER TABLE EMP 
+ADD CONSTRAINT FK_DEPT FOREIGN KEY (DEPTNO) 
+REFERENCES DEPT(DEPTNO);
+
+
+
+6. Add check constraint to the EMP table to check the empno value with empno>100
+
+
+code
+
+ALTER TABLE EMP 
+ADD CONSTRAINT CK_EMPNO CHECK (EMPNO > 100)
+
+
+
+7. Add NOT NULL constraint on sal field with default value 5000, otherwise it should  
+accept the values from the user.
+
+code 
+ALTER TABLE EMP 
+ALTER COLUMN SAL DECIMAL(7,2) NOT NULL; 
+ALTER TABLE EMP 
+ADD CONSTRAINT DF_SAL DEFAULT 5000 FOR SAL;
+
+8. Add columns dob, doj with date data type to the EMP table. Drop the column doj from the  
+EMP table. 
+
+code
+ALTER TABLE EMP 
+ADD DOB DATE, 
+ DOJ DATE; 
+ALTER TABLE EMP 
+DROP COLUMN DOJ;
+
+
+9. Create EMP1, EMP2 tables as copy of EMP table. Drop EMP1 table and truncate EMP2  
+table.
+
+
+CODE 
+SELECT * INTO EMP1 FROM EMP; 
+SELECT * INTO EMP2 FROM EMP;
+-- Drop EMP1 
+DROP TABLE EMP1; 
+-- Truncate EMP2 
+TRUNCATE TABLE EMP2;
+
+
+
+
+
+1. What are DDL commands in SQL? 
+2. Difference between DROP and TRUNCATE. 
+3. How do you apply constraints in SQL Server? 
+4. Why do we use SELECT INTO for table duplication? 
+5. What is the purpose of a DEFAULT constraint?
