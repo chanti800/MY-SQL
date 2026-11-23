@@ -1,3 +1,6 @@
+
+DQL
+
 1.List the records in the EMPLOYEES table by sorting the salary in 
 descending order.
 
