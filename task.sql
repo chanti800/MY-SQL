@@ -1,3 +1,5 @@
+DDL
+
 1. Create a table EMP with the following structure: 
 Name Data Type 
 EMPNO NUMBER(6) 
